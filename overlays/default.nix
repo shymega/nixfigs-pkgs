@@ -23,18 +23,21 @@ let
     inputs.aimu.overlays.default
     inputs.android-nixpkgs.overlays.default
     inputs.bestool.overlays.default
+    inputs.cosmo-codios-codid.overlays.default
     inputs.deckcheatz.overlays.default
+    inputs.deskflow.overlays.default
     inputs.dzr-taskwarrior-recur.overlays.default
-    inputs.emacs2nixpkg.overlays.default
-    inputs.jovian-nixos.overlays.default
+    inputs.ei-wlroots-proxy.overlays.default
+    inputs.emacs2nixpkgs.overlays.default
+    inputs.esp32-dev.overlays.default
+    inputs.home-statd.overlays.default
+    inputs.input-leap.overlays.default
     inputs.nix-alien.overlays.default
+    inputs.nixxy-weechat.overlays.default
     inputs.nur.overlay
     inputs.shypkgs-public.overlays.default
     inputs.wemod-launcher.overlays.default
-  ] ++ (if inputs.shypkgs-private != null then
-    [ inputs.shypkgs-private.overlays.default ]
-  else
-    [ ]);
+  ] ++ (if inputs.shypkgs-private != null then [ inputs.shypkgs-private.overlays.default ] else [ ]);
 
   customOverlays = [
     (import ./master.nix { inherit inputs lib; })
