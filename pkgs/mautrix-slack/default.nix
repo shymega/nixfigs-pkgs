@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Various Authors <generic@example.com>
 #
 # SPDX-License-Identifier: GPL-3.0-only
-
 {
   lib,
   buildGoModule,
@@ -19,7 +18,7 @@ buildGoModule {
     hash = "sha256-Ro4KRsagztvQSzZZJEqe0UY80JrFiZO2TqCsOzeZpYc=";
   };
 
-  buildInputs = [ olm ];
+  buildInputs = [olm];
 
   vendorHash = "sha256-VU3Q2PDdRHUnXTyKmBe7qNKYMX6Lf4+eHoBxXWH8Qaw=";
 
@@ -29,7 +28,7 @@ buildGoModule {
     homepage = "https://github.com/mautrix/slack";
     description = "A Matrix-Slack puppeting bridge";
     license = licenses.agpl3Plus;
-    maintainers = with maintainers; [ kittywitch ];
+    maintainers = with maintainers; [kittywitch];
     mainProgram = "mautrix-slack";
   };
 }
