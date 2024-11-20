@@ -5,7 +5,10 @@
 _final: prev: {
   weechatWithMyPlugins = prev.weechat.override {
     configure = {availablePlugins, ...}: {
-      scripts = with prev.pkgs.weechatScripts; [weechat-notify-send];
+      scripts = with prev.pkgs.weechatScripts; [
+        weechat-notify-send
+        weechat-matrix
+      ];
       plugins = builtins.attrValues availablePlugins;
     };
   };
