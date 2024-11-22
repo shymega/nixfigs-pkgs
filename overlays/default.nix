@@ -32,9 +32,10 @@
       inputs.home-statd.overlays.default
       inputs.input-leap.overlays.default
       inputs.nix-alien.overlays.default
-      inputs.nur.overlay
+      inputs.nur.overlays.default
       inputs.shypkgs-public.overlays.default
       inputs.wemod-launcher.overlays.default
+      inputs.xrlinuxdriver.overlays.default
     ]
     ++ lib.optionals (inputs.shypkgs-private != null) [inputs.shypkgs-private.overlays.default];
 
