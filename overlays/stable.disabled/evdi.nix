@@ -37,7 +37,7 @@ in rec {
 
   sway-unwrapped = prev.sway-unwrapped.override {inherit wlroots;};
   sway = prev.sway.override {inherit sway-unwrapped;};
-  wlroots = prev.wlroots_0_17.overrideAttrs (oldAttrs: {
+  wlroots = prev.wlroots.overrideAttrs (oldAttrs: {
     patches =
       (oldAttrs.patches or [])
       ++ [
