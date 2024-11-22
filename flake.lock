@@ -4041,11 +4041,11 @@
         "nixpkgs-master": "nixpkgs-master_2"
       },
       "locked": {
-        "lastModified": 1732235739,
-        "narHash": "sha256-3gGH6QDqq2cNCiKqSl4wIKw5S+iWZGaQE/MsrR3/BuA=",
+        "lastModified": 1732236496,
+        "narHash": "sha256-MAGlGcZMRsdz+E764TEaMofRcHKkH8F0XG35BbD+KxQ=",
         "owner": "shymega",
         "repo": "shypkgs-public",
-        "rev": "2b43a3e922d188b70448ef558f22fc82cb086e76",
+        "rev": "e8dd9ced5879e3dd3e48c1239e6b10942775898f",
         "type": "github"
       },
       "original": {
