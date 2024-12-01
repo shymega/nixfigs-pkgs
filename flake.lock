@@ -2787,11 +2787,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1733085998,
+        "lastModified": 1733086760,
         "narHash": "sha256-woqptOTZ7npAqSmw7ueILlx6+4LvlHBlUCk5jTgqAis=",
         "owner": "shymega",
         "repo": "nixfigs-helpers",
-        "rev": "fc3405faeffa6eb9973df29fbd501e820e6ac815",
+        "rev": "73acb588b6795893f6de1edaa487066b65124c7d",
         "type": "github"
       },
       "original": {
@@ -2810,11 +2810,11 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1733085892,
+        "lastModified": 1733086644,
         "narHash": "sha256-woqptOTZ7npAqSmw7ueILlx6+4LvlHBlUCk5jTgqAis=",
         "owner": "shymega",
         "repo": "nixfigs-helpers",
-        "rev": "009f8294434b1cc9fd4cef30ab5200d5fa80d137",
+        "rev": "5152e43c495a7fff5bb7edb302520cc347fbab33",
         "type": "github"
       },
       "original": {
@@ -2833,11 +2833,11 @@
         "treefmt-nix": "treefmt-nix_5"
       },
       "locked": {
-        "lastModified": 1733085892,
+        "lastModified": 1733086644,
         "narHash": "sha256-woqptOTZ7npAqSmw7ueILlx6+4LvlHBlUCk5jTgqAis=",
         "owner": "shymega",
         "repo": "nixfigs-helpers",
-        "rev": "009f8294434b1cc9fd4cef30ab5200d5fa80d137",
+        "rev": "5152e43c495a7fff5bb7edb302520cc347fbab33",
         "type": "github"
       },
       "original": {
@@ -2880,11 +2880,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1733085381,
-        "narHash": "sha256-J0HT/qvXyXaDtb/J9Ll23sL+Ene0F9jYGiLkouPZS7c=",
+        "lastModified": 1733086496,
+        "narHash": "sha256-xb+D4FuLuu7IkrUGzwrriOG7h77baLHBGZeGaln6CiQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "47dc5232ba7a2216609734617fd76a6838c0cd86",
+        "rev": "53cf7d9cf210e0f0e81126004c9e5dc8ef9249c0",
         "type": "github"
       },
       "original": {
@@ -2896,11 +2896,11 @@
     },
     "nixpkgs-master_2": {
       "locked": {
-        "lastModified": 1733085381,
-        "narHash": "sha256-J0HT/qvXyXaDtb/J9Ll23sL+Ene0F9jYGiLkouPZS7c=",
+        "lastModified": 1733086496,
+        "narHash": "sha256-xb+D4FuLuu7IkrUGzwrriOG7h77baLHBGZeGaln6CiQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "47dc5232ba7a2216609734617fd76a6838c0cd86",
+        "rev": "53cf7d9cf210e0f0e81126004c9e5dc8ef9249c0",
         "type": "github"
       },
       "original": {
@@ -3697,11 +3697,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1733083887,
-        "narHash": "sha256-u2jPrYvvuy1yuhifTuk6eYezBLsZER+Bl2vOdwtnjiE=",
+        "lastModified": 1733086537,
+        "narHash": "sha256-rVlsx956Jm/gmxx/nC4ClE4mIZ4D/ALjmghCHwO3VRM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "3eadec3d7610126b12d3896935f9250a86e2718e",
+        "rev": "47d7b9c47623126a212fe027033151ad014b43a5",
         "type": "github"
       },
       "original": {
@@ -4021,11 +4021,11 @@
         "nixpkgs": "nixpkgs_26"
       },
       "locked": {
-        "lastModified": 1733085954,
-        "narHash": "sha256-Jk+OFijWLVl/OQI4p0KU+LMHxI8rwFpTI437sJuu5TY=",
+        "lastModified": 1733086705,
+        "narHash": "sha256-uoNCMCsGCGTtS6MSNGu908i7nLVZaHLY4t94kM0NNKI=",
         "owner": "shymega",
         "repo": "shypkgs-private",
-        "rev": "24528f558c60c1a08a9955c8b80e521bb5b31c08",
+        "rev": "5eea7c70a7ef5db447e58d324d2caeb999a3efce",
         "type": "github"
       },
       "original": {
@@ -4041,11 +4041,11 @@
         "nixpkgs-master": "nixpkgs-master_2"
       },
       "locked": {
-        "lastModified": 1733085938,
-        "narHash": "sha256-PzYI9mxTrwHT3gciVlxoVeltTCzDViPHqttyXRzi9Ko=",
+        "lastModified": 1733086690,
+        "narHash": "sha256-G0Ng6Lfnek21i3OfH8OzlxS9d13c2PVHLx/PrcmGV3Q=",
         "owner": "shymega",
         "repo": "shypkgs-public",
-        "rev": "64e69b7433b11f0bc3bbd8fb814ab62a196380da",
+        "rev": "ae53e1babacf6be933f0de8cc5c818cf4d3561d5",
         "type": "github"
       },
       "original": {
