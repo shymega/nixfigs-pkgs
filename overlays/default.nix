@@ -35,6 +35,7 @@
       inputs.nur.overlay
       inputs.shypkgs-public.overlays.default
       inputs.wemod-launcher.overlays.default
+      inputs.xrlinuxdriver.overlays.default
     ]
     ++ lib.optionals (inputs.shypkgs-private != null) [inputs.shypkgs-private.overlays.default];
 

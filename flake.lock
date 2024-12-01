@@ -1201,6 +1201,22 @@
         "type": "github"
       }
     },
+    "flake-compat_28": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696426674,
+        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-compat_3": {
       "flake": false,
       "locked": {
@@ -1702,6 +1718,24 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_26": {
+      "inputs": {
+        "systems": "systems_31"
+      },
+      "locked": {
+        "lastModified": 1726560853,
+        "narHash": "sha256-X6rJYSESBVr3hBoH0WbKE5KvhPU5bloyZ2L4K60/fPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a",
         "type": "github"
       },
       "original": {
@@ -2787,11 +2821,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1733088771,
+        "lastModified": 1733089877,
         "narHash": "sha256-woqptOTZ7npAqSmw7ueILlx6+4LvlHBlUCk5jTgqAis=",
         "owner": "shymega",
         "repo": "nixfigs-helpers",
-        "rev": "f5d9515530e9145bdf9b28ac806cae166c31fc29",
+        "rev": "606f65b6fd6b4689dd7687e399d6ad3a842757a3",
         "type": "github"
       },
       "original": {
@@ -2810,11 +2844,11 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1733088628,
+        "lastModified": 1733089784,
         "narHash": "sha256-woqptOTZ7npAqSmw7ueILlx6+4LvlHBlUCk5jTgqAis=",
         "owner": "shymega",
         "repo": "nixfigs-helpers",
-        "rev": "618b2421bc8b6a53023885a3d571fc455e5ab81f",
+        "rev": "be9b9d6bf07418a79f5a4e5bbc86eb2fdebc6060",
         "type": "github"
       },
       "original": {
@@ -2833,11 +2867,11 @@
         "treefmt-nix": "treefmt-nix_5"
       },
       "locked": {
-        "lastModified": 1733088628,
+        "lastModified": 1733089784,
         "narHash": "sha256-woqptOTZ7npAqSmw7ueILlx6+4LvlHBlUCk5jTgqAis=",
         "owner": "shymega",
         "repo": "nixfigs-helpers",
-        "rev": "618b2421bc8b6a53023885a3d571fc455e5ab81f",
+        "rev": "be9b9d6bf07418a79f5a4e5bbc86eb2fdebc6060",
         "type": "github"
       },
       "original": {
@@ -3581,6 +3615,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_34": {
+      "locked": {
+        "lastModified": 1731139594,
+        "narHash": "sha256-IigrKK3vYRpUu+HEjPL/phrfh7Ox881er1UEsZvw9Q4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "76612b17c0ce71689921ca12d9ffdc9c23ce40b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_4": {
       "locked": {
         "lastModified": 1717646450,
@@ -3995,7 +4045,8 @@
         "nur": "nur",
         "shypkgs-private": "shypkgs-private",
         "shypkgs-public": "shypkgs-public",
-        "wemod-launcher": "wemod-launcher"
+        "wemod-launcher": "wemod-launcher",
+        "xrlinuxdriver": "xrlinuxdriver"
       }
     },
     "rust-analyzer-src": {
@@ -4021,11 +4072,11 @@
         "nixpkgs": "nixpkgs_26"
       },
       "locked": {
-        "lastModified": 1733088689,
-        "narHash": "sha256-C3SkYtfBGp5vKJjeUTaMwJPs3rjWhJRhcR9jRWo0E9o=",
+        "lastModified": 1733089835,
+        "narHash": "sha256-7815kR/4HRsPkXNQi1NY8BuAWLhbXxZyn9VvI4ouIZA=",
         "owner": "shymega",
         "repo": "shypkgs-private",
-        "rev": "035e8ec826e14928aed0b96cd4937b30b5dcb2da",
+        "rev": "2b65b72d551af3a068b392a4df367c7831656acc",
         "type": "github"
       },
       "original": {
@@ -4041,11 +4092,11 @@
         "nixpkgs-master": "nixpkgs-master_2"
       },
       "locked": {
-        "lastModified": 1733088666,
-        "narHash": "sha256-zM4CuUxW9jnt+gdLzirnbmfv8BvtJQberewYjTiRXLc=",
+        "lastModified": 1733089806,
+        "narHash": "sha256-92KRG/pyaqKeLTSUw8xjK8R0q5CwEg8XM5yB+lZlc60=",
         "owner": "shymega",
         "repo": "shypkgs-public",
-        "rev": "7e943e2b1e4615cda034a0d43345eeca249af713",
+        "rev": "f1b1753306eeea4e57a0a92e2d26e5d8bc13e358",
         "type": "github"
       },
       "original": {
@@ -4413,6 +4464,21 @@
         "type": "github"
       }
     },
+    "systems_31": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "systems_4": {
       "locked": {
         "lastModified": 1681028828,
@@ -4617,6 +4683,27 @@
         "owner": "shymega",
         "ref": "refactor-shymega",
         "repo": "wemod-launcher",
+        "type": "github"
+      }
+    },
+    "xrlinuxdriver": {
+      "inputs": {
+        "flake-compat": "flake-compat_28",
+        "flake-utils": "flake-utils_26",
+        "nixpkgs": "nixpkgs_34"
+      },
+      "locked": {
+        "lastModified": 1733087217,
+        "narHash": "sha256-ot2G9MKlE4zrEEcR6svx+V+vu/SG1zXD0YXradTBhI4=",
+        "owner": "shymega",
+        "repo": "XRLinuxDriver",
+        "rev": "489b7fc6a2828744faa282c61861638b90120082",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shymega",
+        "ref": "shymega/nix-flake-support",
+        "repo": "XRLinuxDriver",
         "type": "github"
       }
     }
