@@ -149,6 +149,9 @@
     shypkgs-public.url = "github:shymega/shypkgs-public";
     home-statd.url = "github:shymega/home-statd";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    xrlinuxdriver.url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support";
+    xrlinuxdriver = {
+      url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
