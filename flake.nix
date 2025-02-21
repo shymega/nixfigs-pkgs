@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Dom Rodriguez <shymega@shymega.org.uk
-
 #
 # SPDX-License-Identifier: GPL-3.0-only
-
 {
   description = "Packages for my NixOS Flakes";
 
@@ -31,79 +29,73 @@
     ];
   };
 
-  outputs =
-    inputs:
-    let
-      inherit (inputs) self;
-      genPkgs =
-        system:
-        import inputs.nixpkgs {
-          inherit system;
-          overlays = builtins.attrValues self.overlays;
-          config = self.nixpkgs-config;
-        };
+  outputs = inputs: let
+    inherit (inputs) self;
+    genPkgs = system:
+      import inputs.nixpkgs {
+        inherit system;
+        overlays = builtins.attrValues self.overlays;
+        config = self.nixpkgs-config;
+      };
 
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
 
-      allSystems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "armv6l-linux"
-        "armv7l-linux"
-        "riscv64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-      treeFmtEachSystem =
-        f: inputs.nixpkgs.lib.genAttrs systems (system: f inputs.nixpkgs.legacyPackages.${system});
-      treeFmtEval = treeFmtEachSystem (
-        pkgs:
+    allSystems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "armv6l-linux"
+      "armv7l-linux"
+      "riscv64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
+    treeFmtEachSystem = f: inputs.nixpkgs.lib.genAttrs systems (system: f inputs.nixpkgs.legacyPackages.${system});
+    treeFmtEval = treeFmtEachSystem (
+      pkgs:
         inputs.nixfigs-helpers.inputs.treefmt-nix.lib.evalModule pkgs inputs.nixfigs-helpers.helpers.formatter
-      );
+    );
 
-      forEachSystem = inputs.nixpkgs.lib.genAttrs systems;
-      forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
-    in
-    {
-      libx = forAllSystems (system: inputs.helpers.libx.${system});
-      overlays = import ./overlays {
-        inherit inputs;
-        inherit (inputs.nixpkgs) lib;
-      };
-      # for `nix fmt`
-      formatter = treeFmtEachSystem (pkgs: treeFmtEval.${pkgs.system}.config.build.wrapper);
-      # for `nix flake check`
-      checks =
-        treeFmtEachSystem (pkgs: {
-          formatting = treeFmtEval.${pkgs}.config.build.wrapper;
-        })
-        // forEachSystem (system: {
-          pre-commit-check = import "${inputs.nixfigs-helpers.helpers.checks}" {
-            inherit self system;
-            inherit (inputs.nixfigs-helpers) inputs;
-            inherit (inputs.nixpkgs) lib;
-          };
-        });
-      devShells = forEachSystem (
-        system:
-        let
-          pkgs = genPkgs system;
-        in
-        import inputs.nixfigs-helpers.helpers.devShells { inherit pkgs self system; }
-      );
-      nixpkgs-config = {
-        allowUnfree = true;
-        allowUnsupportedSystem = true;
-        allowBroken = true;
-        allowInsecurePredicate = _: true;
-      };
-      packages = forEachSystem (
-        system: (inputs.shypkgs-private.packages.${system} // inputs.shypkgs-public.packages.${system})
-      );
+    forEachSystem = inputs.nixpkgs.lib.genAttrs systems;
+    forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
+  in {
+    libx = forAllSystems (system: inputs.helpers.libx.${system});
+    overlays = import ./overlays {
+      inherit inputs;
+      inherit (inputs.nixpkgs) lib;
     };
+    # for `nix fmt`
+    formatter = treeFmtEachSystem (pkgs: treeFmtEval.${pkgs.system}.config.build.wrapper);
+    # for `nix flake check`
+    checks =
+      treeFmtEachSystem (pkgs: {
+        formatting = treeFmtEval.${pkgs}.config.build.wrapper;
+      })
+      // forEachSystem (system: {
+        pre-commit-check = import "${inputs.nixfigs-helpers.helpers.checks}" {
+          inherit self system;
+          inherit (inputs.nixfigs-helpers) inputs;
+          inherit (inputs.nixpkgs) lib;
+        };
+      });
+    devShells = forEachSystem (
+      system: let
+        pkgs = genPkgs system;
+      in
+        import inputs.nixfigs-helpers.helpers.devShells {inherit pkgs self system;}
+    );
+    nixpkgs-config = {
+      allowUnfree = true;
+      allowUnsupportedSystem = true;
+      allowBroken = true;
+      allowInsecurePredicate = _: true;
+    };
+    packages = forEachSystem (
+      system: (inputs.shypkgs-private.packages.${system} // inputs.shypkgs-public.packages.${system})
+    );
+  };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
