@@ -2,11 +2,11 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 
-{ lib
-, buildGoModule
-, fetchFromGitHub
-, olm
-,
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+  olm,
 }:
 buildGoModule {
   pname = "mautrix-slack";
@@ -19,9 +19,7 @@ buildGoModule {
     hash = "sha256-Ro4KRsagztvQSzZZJEqe0UY80JrFiZO2TqCsOzeZpYc=";
   };
 
-  buildInputs = [
-    olm
-  ];
+  buildInputs = [ olm ];
 
   vendorHash = "sha256-VU3Q2PDdRHUnXTyKmBe7qNKYMX6Lf4+eHoBxXWH8Qaw=";
 

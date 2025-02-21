@@ -9,14 +9,7 @@ _final: prev: {
     configure =
       { availablePlugins, ... }:
       {
-        scripts = with prev.pkgs.weechatScripts; [
-          buffer_autoset
-          colorize_nicks
-          url_hint
-          weechat-autosort
-          weechat-go
-          weechat-notify-send
-        ];
+        scripts = with prev.pkgs.weechatScripts; [ weechat-notify-send ];
         plugins = builtins.attrValues availablePlugins;
       };
   };
