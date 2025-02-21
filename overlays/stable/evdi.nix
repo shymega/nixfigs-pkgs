@@ -14,4 +14,12 @@ _: prev: rec {
   });
 
   displaylink = prev.displaylink.override { inherit evdi; };
+
+  sway-unwrapped = prev.sway-unwrapped.override { inherit wlroots; };
+  sway = prev.sway.override { inherit sway-unwrapped; };
+  wlroots = prev.wlroots_0_17.overrideAttrs (oldAttrs: {
+    patches = (oldAttrs.patches or [ ]) ++ [
+      ../../patches/wlroots/0001-fix-Patch-backend.c-for-my-use.patch
+    ];
+  });
 }
