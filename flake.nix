@@ -106,18 +106,10 @@
       url = "github:NixOS/flake-registry";
       flake = false;
     };
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
+    flake-compat.follows = "nixfigs-helpers/flake-compat";
+    agenix.follows = "nixfigs-helpers/agenix";
     nur.url = "github:nix-community/NUR";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.follows = "nixfigs-helpers/flake-utils";
     aimu.url = "github:shymega/aimu?ref=refactor-shymega";
     android-nixpkgs = {
       url = "github:tadfisher/android-nixpkgs/stable";
@@ -149,5 +141,9 @@
     shypkgs-public.url = "github:shymega/shypkgs-public";
     home-statd.url = "github:shymega/home-statd";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    xrlinuxdriver = {
+      url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
