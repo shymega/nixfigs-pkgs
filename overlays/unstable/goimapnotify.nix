@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 _: prev: {
-  goimapnotify-patched = prev.goimapnotify.overrideAttrs (oldAttrs: {
+  goimapnotify = prev.goimapnotify.overrideAttrs (oldAttrs: {
     patches =
       (oldAttrs.patches or [])
       ++ [

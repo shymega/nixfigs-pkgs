@@ -106,18 +106,10 @@
       url = "github:NixOS/flake-registry";
       flake = false;
     };
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
+    flake-compat.follows = "nixfigs-helpers/flake-compat";
+    agenix.follows = "nixfigs-helpers/agenix";
     nur.url = "github:nix-community/NUR";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.follows = "nixfigs-helpers/flake-utils";
     aimu.url = "github:shymega/aimu?ref=refactor-shymega";
     android-nixpkgs = {
       url = "github:tadfisher/android-nixpkgs/stable";
@@ -137,7 +129,6 @@
     bestool.url = "github:shymega/bestool?ref=shymega-all-fixes";
     deckcheatz.url = "github:deckcheatz/deckcheatz";
     dzr-taskwarrior-recur.url = "github:shymega/dzr-taskwarrior-recur";
-    emacs2nixpkgs.url = "github:shymega/emacs2nixpkgs";
     cosmo-codios-codid.url = "github:cosmo-codios/codid";
     ei-wlroots-proxy.url = "github:input-leap/ei-wlroots-proxy";
     input-leap.url = "github:shymega/input-leap?ref=shymega/feat-nix-support";
@@ -149,5 +140,10 @@
     shypkgs-public.url = "github:shymega/shypkgs-public";
     home-statd.url = "github:shymega/home-statd";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    xrlinuxdriver = {
+      url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
   };
 }
