@@ -27,14 +27,15 @@
       inputs.deckcheatz.overlays.default
       inputs.deskflow.overlays.default
       inputs.dzr-taskwarrior-recur.overlays.default
-      inputs.emacs2nixpkgs.overlays.default
       inputs.esp32-dev.overlays.default
       inputs.home-statd.overlays.default
       inputs.input-leap.overlays.default
       inputs.nix-alien.overlays.default
-      inputs.nur.overlay
+      inputs.nix-doom-emacs-unstraightened.overlays.default
+      inputs.nur.overlays.default
       inputs.shypkgs-public.overlays.default
       inputs.wemod-launcher.overlays.default
+      inputs.xrlinuxdriver.overlays.default
     ]
     ++ lib.optionals (inputs.shypkgs-private != null) [inputs.shypkgs-private.overlays.default];
 
