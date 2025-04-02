@@ -6,7 +6,6 @@ _: prev: {
     version = "unstable";
 
     src = prev.fetchFromGitLab {
-      domain = "gitlab.freedesktop.org";
       owner = "emersion";
       repo = "kanshi";
       rev = "ebfd4de9c23c5f559da2bf72d6d881df7a56c349";
