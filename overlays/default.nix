@@ -7,9 +7,9 @@
   inputs,
   ...
 }: let
-  importStableOverlay = overlay: lib.composeExtensions (_: _: {__inputs = inputs;}) (import (./stable + "/${overlay}"));
+  importStableOverlay = overlay: lib.composeExtensions (_: _: {__inputs = inputs;}) (import (./stable/enabled.d + "/${overlay}"));
 
-  stableOverlays = builtins.readDir ./stable;
+  stableOverlays = builtins.readDir ./stable/enabled.d;
 
   stableOverlaysWithImports =
     lib.mapAttrs' (
@@ -17,32 +17,24 @@
     )
     stableOverlays;
 
-  defaultOverlays =
+  defaultOverlays = with inputs;
     [
-      inputs.agenix.overlays.default
-      inputs.aimu.overlays.default
-      inputs.android-nixpkgs.overlays.default
-      inputs.bestool.overlays.default
-      inputs.cosmo-codios-codid.overlays.default
-      inputs.deckcheatz.overlays.default
-      inputs.deskflow.overlays.default
-      inputs.dzr-taskwarrior-recur.overlays.default
-      inputs.esp32-dev.overlays.default
-      inputs.home-statd.overlays.default
-      inputs.input-leap.overlays.default
-      inputs.nix-alien.overlays.default
-      inputs.nix-doom-emacs-unstraightened.overlays.default
-      inputs.nur.overlays.default
-      inputs.shypkgs-public.overlays.default
-      inputs.wemod-launcher.overlays.default
-      inputs.xrlinuxdriver.overlays.default
+      agenix.overlays.default
+      android-nixpkgs.overlays.default
+      deckcheatz.overlays.default
+      deskflow.overlays.default
+      dzr-taskwarrior-recur.overlays.default
+      home-statd.overlays.default
+      nix-alien.overlays.default
+      nix-doom-emacs-unstraightened.overlays.default
+      nur.overlays.default
+      shypkgs-public.overlays.default
     ]
-    ++ lib.optionals (inputs.shypkgs-private != null) [inputs.shypkgs-private.overlays.default];
+    ++ lib.optional (inputs.shypkgs-private != null) inputs.shypkgs-private.overlays.default;
 
   customOverlays = [
-    (import ./master.nix {inherit inputs lib;})
-    (import ./shymega.nix {inherit inputs lib;})
-    (import ./unstable.nix {inherit inputs lib;})
+    (import ./shymega {inherit inputs lib;})
+    (import ./unstable {inherit inputs lib;})
   ];
 in
   stableOverlaysWithImports
