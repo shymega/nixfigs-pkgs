@@ -5,7 +5,6 @@
 _final: prev: {
   nginx-rtmp = prev.nginxStable.override (oldAttrs: {
     pname = "nginx-rtmp";
-    inherit (oldAttrs) version;
     modules = oldAttrs.modules ++ [prev.nginxModules.rtmp];
   });
 }
