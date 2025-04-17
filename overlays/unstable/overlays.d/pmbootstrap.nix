@@ -5,8 +5,6 @@ _: prev: {
   pmbootstrap-bumped = prev.pmbootstrap.overrideAttrs (oldAttrs: rec {
     inherit (oldAttrs) src version pname;
 
-    disabledTests = (oldAttrs.disabledTests or []) ++ ["test_pkgrepo_pmaports"];
-
     doCheck = false;
     doInstallCheck = false;
   });
