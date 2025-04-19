@@ -48,7 +48,7 @@
     );
     nixpkgs-config = {
       allowUnfree = true;
-      allowUnsupportedSystem = false;
+      allowUnsupportedSystem = true;
       allowBroken = false;
       allowInsecurePredicate = _: true;
     };
