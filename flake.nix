@@ -48,8 +48,8 @@
     );
     nixpkgs-config = {
       allowUnfree = true;
-      allowUnsupportedSystem = false;
-      allowBroken = false;
+      allowUnsupportedSystem = true;
+      allowBroken = true;
       allowInsecurePredicate = _: true;
     };
     overlays = import ./overlays {
@@ -88,7 +88,7 @@
     shypkgs-public.url = "github:shymega/shypkgs-public";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     xrlinuxdriver = {
-      url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support";
+      url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support-v2.0.5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
