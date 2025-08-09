@@ -8,8 +8,9 @@ _: prev: {
     rev = 3627;
 
     src = prev.fetchurl {
-      url = "mirror://sourceforge/${pname}/${version}/${pname}-${version}-${toString rev}.zip";
-      hash = "sha256-Yh61ZHsEMF6SchLEyBV3rRI7pJ/bvR2K4G8U6jrPa3A=";
+      name = "davmail-6.3.0-trunk.zip";
+      url = "https://ci.appveyor.com/api/projects/mguessan/davmail/artifacts/dist%2Fdavmail-6.3.0-trunk.zip?job=Environment%3A%20JAVA_HOME%3DC%3A%5CProgram%20Files%5CJava%5Cjdk1.8.0";
+      hash = "sha256-TJOdwoEdOehy3jxqwGs6FZLVzVZBkRRDFnggjeKOm2k=";
     };
   });
 }
