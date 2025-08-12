@@ -48,8 +48,8 @@
     );
     nixpkgs-config = {
       allowUnfree = true;
-      allowUnsupportedSystem = false;
-      allowBroken = false;
+      allowUnsupportedSystem = true;
+      allowBroken = true;
       allowInsecurePredicate = _: true;
     };
     overlays = import ./overlays {
@@ -61,7 +61,7 @@
     );
   };
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-shymega.url = "github:shymega/nixpkgs?ref=shymega/staging";
     nixfigs-helpers.url = "github:shymega/nixfigs-helpers";
@@ -88,9 +88,10 @@
     shypkgs-public.url = "github:shymega/shypkgs-public";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     xrlinuxdriver = {
-      url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support";
+      url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support-v2.0.5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
+    devenv.url = "github:cachix/devenv/latest";
   };
 }
