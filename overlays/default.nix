@@ -22,6 +22,7 @@
       agenix.overlays.default
       android-nixpkgs.overlays.default
       deckcheatz.overlays.default
+      devenv.overlays.default
       dzr-taskwarrior-recur.overlays.default
       nix-alien.overlays.default
       nix-doom-emacs-unstraightened.overlays.default
