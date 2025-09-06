@@ -21,7 +21,7 @@
     [
       agenix.overlays.default
       android-nixpkgs.overlays.default
-      deckcheatz.overlays.default
+      chaotic.overlays.cache-friendly
       devenv.overlays.default
       dzr-taskwarrior-recur.overlays.default
       nix-alien.overlays.default
@@ -29,6 +29,9 @@
       nur.overlays.default
       shypkgs-public.overlays.default
       xrlinuxdriver.overlays.default
+      (_: prev: {
+        inherit (inputs.nixpkgs-shymega.legacyPackages.${prev.system}) davmail;
+      })
     ]
     ++ lib.optional (inputs.shypkgs-private != null) inputs.shypkgs-private.overlays.default;
 

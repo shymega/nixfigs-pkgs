@@ -64,6 +64,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-shymega.url = "github:shymega/nixpkgs?ref=shymega/staging";
+    nixpkgs-shymega-zfs-fix.url = "github:shymega/nixpkgs?ref=shymega/nixpkgs-unstable-zfs-bash-fix";
     nixfigs-helpers.url = "github:shymega/nixfigs-helpers";
     flake-compat.follows = "nixfigs-helpers/flake-compat";
     agenix.follows = "nixfigs-helpers/agenix";
@@ -80,13 +81,12 @@
       };
     };
     bestool.url = "github:shymega/bestool?ref=shymega-all-fixes";
-    deckcheatz.url = "github:deckcheatz/deckcheatz";
     dzr-taskwarrior-recur.url = "github:shymega/dzr-taskwarrior-recur";
     esp32-dev.url = "github:shymega/esp32-dev.nix";
-    wemod-launcher.url = "github:shymega/wemod-launcher?ref=refactor-shymega";
+    wemod-launcher.url = "github:DeckCheatz/wemod-launcher?ref=refactor-shymega";
     shypkgs-private.url = "github:shymega/shypkgs-private";
     shypkgs-public.url = "github:shymega/shypkgs-public";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic.url = "github:chaotic-cx/nyx?ref=nyxpkgs-unstable";
     xrlinuxdriver = {
       url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support-v2.0.5";
       inputs.nixpkgs.follows = "nixpkgs";
