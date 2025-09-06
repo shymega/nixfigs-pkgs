@@ -4,12 +4,12 @@
 _: prev: {
   davmail = prev.davmail.overrideAttrs (oldAttrs: rec {
     inherit (oldAttrs) pname;
-    version = "6.3.0";
+    version = "6.4.0";
     rev = 3627;
 
     src = prev.fetchzip {
-      url = "https://ci.appveyor.com/api/projects/mguessan/davmail/artifacts/dist%2Fdavmail-6.3.0-trunk.zip?job=Environment%3A%20JAVA_HOME%3DC%3A%5CProgram%20Files%5CJava%5Cjdk1.8.0";
-      hash = "sha256-TJOdwoEdOehy3jxqwGs6FZLVzVZBkRRDFnggjeKOm2k=";
+      url = "https://ci.appveyor.com/api/projects/mguessan/davmail/artifacts/dist%2Fdavmail-6.4.0-trunk.zip?job=Environment%3A%20JAVA_HOME%3DC%3A%5CProgram%20Files%5CJava%5Cjdk1.8.0";
+      hash = "sha256-Oed6R9f80t82sKcyA2bvWuq9MLy9AwyE91ldrM/xQao=";
       extension = "zip";
       stripRoot = false;
     };
