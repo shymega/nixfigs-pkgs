@@ -83,7 +83,6 @@
     deckcheatz.url = "github:deckcheatz/deckcheatz";
     dzr-taskwarrior-recur.url = "github:shymega/dzr-taskwarrior-recur";
     esp32-dev.url = "github:shymega/esp32-dev.nix";
-    wemod-launcher.url = "github:shymega/wemod-launcher?ref=refactor-shymega";
     shypkgs-private.url = "github:shymega/shypkgs-private";
     shypkgs-public.url = "github:shymega/shypkgs-public";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
