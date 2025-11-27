@@ -65,15 +65,10 @@
           };
         in {
           zfs-breakpoint-hook = pkgs.linuxPackages_cachyos-lto.zfs_cachyos.overrideAttrs (_prev: _final: {
-            preBuild = ''
-              # force an exit with error
-              exit 1
+            preInstall = ''
+              # sleep for 1 hour to force the sandbox to pause
+              sleep 3600
             '';
-
-            nativeBuildInputs = [
-              # add the breakpoint hook
-              pkgs.breakpointHook
-            ];
           });
         };
       };
