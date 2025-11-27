@@ -56,9 +56,31 @@
       inherit inputs;
       inherit (inputs.nixpkgs) lib;
     };
-    packages = forEachSystem (
-      system: (inputs.shypkgs-private.packages.${system} // inputs.shypkgs-public.packages.${system})
-    );
+    packages = let
+      zfs-breakpoint-pkgs = {
+        "x86_64-linux" = let
+          pkgs = import inputs.nixpkgs {
+            system = "x86_64-linux";
+            overlays = builtins.attrValues self.overlays;
+          };
+        in {
+          zfs-breakpoint-hook = pkgs.linuxPackages_cachyos-lto.zfs_cachyos.overrideAttrs (_prev: _final: {
+            preBuild = ''
+              # force an exit with error
+              exit 1
+            '';
+
+            nativeBuildInputs = [
+              # add the breakpoint hook
+              pkgs.breakpointHook
+            ];
+          });
+        };
+      };
+    in
+      forEachSystem (
+        system: (inputs.shypkgs-private.packages.${system} // inputs.shypkgs-public.packages.${system} // zfs-breakpoint-pkgs.${system})
+      );
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
