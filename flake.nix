@@ -27,7 +27,7 @@
     forEachSystem = inputs.nixpkgs.lib.genAttrs systems;
   in {
     # for `nix fmt`
-    formatter = treeFmtEachSystem (pkgs: treeFmtEval.${pkgs.system}.config.build.wrapper);
+    formatter = treeFmtEachSystem (pkgs: treeFmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.wrapper);
     # for `nix flake check`
     checks =
       treeFmtEachSystem (pkgs: {
@@ -57,6 +57,7 @@
       inherit (inputs.nixpkgs) lib;
     };
     packages = let
+      inherit (inputs.nixpkgs.lib) recursiveUpdate;
       zfs-breakpoint-pkgs = {
         "x86_64-linux" = let
           pkgs = import inputs.nixpkgs {
@@ -71,11 +72,13 @@
             '';
           });
         };
+        "aarch64-linux" = {};
       };
-    in
-      forEachSystem (
-        system: (inputs.shypkgs-private.packages.${system} // inputs.shypkgs-public.packages.${system} // zfs-breakpoint-pkgs.${system})
+      setOne = forEachSystem (
+        system: (inputs.shypkgs-private.packages.${system} // inputs.shypkgs-public.packages.${system})
       );
+    in
+      recursiveUpdate setOne zfs-breakpoint-pkgs;
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
