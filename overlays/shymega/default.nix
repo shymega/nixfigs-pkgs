@@ -6,7 +6,7 @@
   inputs,
   lib,
   ...
-}: _final: prev: let
+}: final: _prev: let
   importShymegaOverlay = overlay: lib.composeExtensions (_: _: {__inputs = inputs;}) (import (./enabled.d + "/${overlay}"));
 
   shymegaOverlays = lib.mapAttrs' (
@@ -14,7 +14,7 @@
   ) (builtins.readDir ./enabled.d);
 in {
   shymega = import inputs.nixpkgs-shymega {
-    inherit (prev) system;
+    localSystem = final.stdenv.hostPlatform;
     config = inputs.self.nixpkgs-config;
     overlays = builtins.attrValues shymegaOverlays;
   };
