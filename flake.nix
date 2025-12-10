@@ -65,7 +65,7 @@
             overlays = builtins.attrValues self.overlays;
           };
         in {
-          zfs-breakpoint-hook = pkgs.linuxPackages_cachyos-lto.zfs_cachyos.overrideAttrs (_prev: _final: {
+          zfs-breakpoint-hook = pkgs.cachyosKernels.linuxPackages-cachyos-latest.zfs_cachyos.overrideAttrs (_prev: _final: {
             preInstall = ''
               # sleep for 1 hour to force the sandbox to pause
               sleep 3600
@@ -99,10 +99,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
-    };
-    nix-cachyos-kernel = {
-      url = "github:xddxdd/nix-cachyos-kernel";
-      inputs.nixpkgs.follows = "nixpkgs-shymega-zfs-bash-fix";
     };
     bestool.url = "github:shymega/bestool?ref=shymega-all-fixes";
     deckcheatz.url = "github:deckcheatz/deckcheatz";

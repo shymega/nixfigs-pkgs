@@ -6,7 +6,7 @@
   inputs,
   lib,
   ...
-}: _final: prev: let
+}: final: _prev: let
   importUnstableOverlay = overlay: lib.composeExtensions (_: _: {__inputs = inputs;}) (import (./enabled.d + "/${overlay}"));
 
   unstableOverlays = lib.mapAttrs' (
@@ -14,7 +14,7 @@
   ) (builtins.readDir ./enabled.d);
 in {
   unstable = import inputs.nixpkgs-unstable {
-    inherit (prev) system;
+    localSystem = final.stdenv.hostPlatform;
     config = inputs.self.nixpkgs-config;
     overlays = builtins.attrValues unstableOverlays;
   };
