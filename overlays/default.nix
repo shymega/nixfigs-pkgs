@@ -21,11 +21,11 @@
     [
       agenix.overlays.default
       android-nixpkgs.overlays.default
-      chaotic.overlays.cache-friendly
       deckcheatz.overlays.default
       devenv.overlays.default
       dzr-taskwarrior-recur.overlays.default
       nix-alien.overlays.default
+      nix-cachyos-kernel.overlays.default
       nix-doom-emacs-unstraightened.overlays.default
       nur.overlays.default
       shypkgs-public.overlays.default
