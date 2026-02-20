@@ -48,7 +48,7 @@
     );
     nixpkgs-config = {
       allowUnfree = true;
-      allowUnsupportedSystem = true;
+      allowUnsupportedSystem = false;
       allowBroken = true;
       allowInsecurePredicate = _: true;
     };
@@ -100,18 +100,15 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-    bestool.url = "github:shymega/bestool?ref=shymega-all-fixes";
-    deckcheatz.url = "github:deckcheatz/deckcheatz";
     dzr-taskwarrior-recur.url = "github:shymega/dzr-taskwarrior-recur";
-    esp32-dev.url = "github:shymega/esp32-dev.nix";
     shypkgs-private.url = "github:shymega/shypkgs-private";
     shypkgs-public.url = "github:shymega/shypkgs-public";
-    xrlinuxdriver = {
-      url = "github:shymega/XRLinuxDriver?ref=shymega/nix-flake-support-v2.0.5";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
     devenv.url = "github:cachix/devenv/latest";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+      inputs.nixpkgs.follows = "nixpkgs-shymega-zfs-bash-fix";
+    };
+    nix-openclaw.url = "github:openclaw/nix-openclaw";
   };
 }
