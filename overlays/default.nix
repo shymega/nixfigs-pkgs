@@ -20,16 +20,14 @@
   defaultOverlays = with inputs;
     [
       agenix.overlays.default
-      android-nixpkgs.overlays.default
-      deckcheatz.overlays.default
       devenv.overlays.default
       dzr-taskwarrior-recur.overlays.default
       nix-alien.overlays.default
       nix-cachyos-kernel.overlays.pinned
       nix-doom-emacs-unstraightened.overlays.default
+      nix-openclaw.overlays.default
       nur.overlays.default
       shypkgs-public.overlays.default
-      xrlinuxdriver.overlays.default
     ]
     ++ lib.optional (inputs.shypkgs-private != null) inputs.shypkgs-private.overlays.default;
 
