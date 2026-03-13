@@ -27,6 +27,7 @@
       nix-doom-emacs-unstraightened.overlays.default
       nix-openclaw.overlays.default
       nur.overlays.default
+      shypkgs-public.overlays.default
     ]
     ++ lib.optional (inputs.shypkgs-private != null) inputs.shypkgs-private.overlays.default;
 
