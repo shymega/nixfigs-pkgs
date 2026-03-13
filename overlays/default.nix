@@ -17,7 +17,13 @@
     )
     stableOverlays;
 
-  defaultOverlays = with inputs;
+  defaultOverlays = with inputs; let
+    openclawOverlaySafe = final: prev:
+    # Only apply when stdenv exists (real nixpkgs, not flake check)
+      if prev ? stdenv
+      then inputs.nix-openclaw.overlays.default final prev
+      else {};
+  in
     [
       agenix.overlays.default
       devenv.overlays.default
@@ -25,7 +31,7 @@
       nix-alien.overlays.default
       nix-cachyos-kernel.overlays.pinned
       nix-doom-emacs-unstraightened.overlays.default
-      nix-openclaw.overlays.default
+      openclawOverlaySafe
       nur.overlays.default
       shypkgs-public.overlays.default
     ]
