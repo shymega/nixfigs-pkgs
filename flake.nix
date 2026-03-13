@@ -57,28 +57,11 @@
       inherit (inputs.nixpkgs) lib;
     };
     packages = let
-      inherit (inputs.nixpkgs.lib) recursiveUpdate;
-      zfs-breakpoint-pkgs = {
-        "x86_64-linux" = let
-          pkgs = import inputs.nixpkgs {
-            system = "x86_64-linux";
-            overlays = builtins.attrValues self.overlays;
-          };
-        in {
-          zfs-breakpoint-hook = pkgs.cachyosKernels.linuxPackages-cachyos-latest.zfs_cachyos.overrideAttrs (_prev: _final: {
-            preInstall = ''
-              # sleep for 1 hour to force the sandbox to pause
-              sleep 3600
-            '';
-          });
-        };
-        "aarch64-linux" = {};
-      };
       setOne = forEachSystem (
         system: (inputs.shypkgs-private.packages.${system} // inputs.shypkgs-public.packages.${system})
       );
     in
-      recursiveUpdate setOne zfs-breakpoint-pkgs;
+      setOne;
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
