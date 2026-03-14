@@ -56,12 +56,6 @@
       inherit inputs;
       inherit (inputs.nixpkgs) lib;
     };
-    packages = let
-      setOne = forEachSystem (
-        system: (inputs.shypkgs-private.packages.${system} // inputs.shypkgs-public.packages.${system})
-      );
-    in
-      setOne;
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -84,7 +78,7 @@
       };
     };
     dzr-taskwarrior-recur.url = "github:shymega/dzr-taskwarrior-recur";
-    shypkgs-private.url = "github:shymega/shypkgs-private";
+    breezy-desktop.url = "git+https://github.com/shymega/breezy-desktop?ref=shymega/add-nix-flake-support";
     shypkgs-public.url = "github:shymega/shypkgs-public";
     nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
     devenv.url = "github:cachix/devenv/latest";

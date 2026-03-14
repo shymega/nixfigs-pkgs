@@ -23,19 +23,17 @@
       if prev ? stdenv
       then inputs.nix-openclaw.overlays.default final prev
       else {};
-  in
-    [
-      agenix.overlays.default
-      devenv.overlays.default
-      dzr-taskwarrior-recur.overlays.default
-      nix-alien.overlays.default
-      nix-cachyos-kernel.overlays.pinned
-      nix-doom-emacs-unstraightened.overlays.default
-      openclawOverlaySafe
-      nur.overlays.default
-      shypkgs-public.overlays.default
-    ]
-    ++ lib.optional (inputs.shypkgs-private != null) inputs.shypkgs-private.overlays.default;
+  in [
+    agenix.overlays.default
+    devenv.overlays.default
+    dzr-taskwarrior-recur.overlays.default
+    nix-alien.overlays.default
+    nix-cachyos-kernel.overlays.pinned
+    nix-doom-emacs-unstraightened.overlays.default
+    nur.overlays.default
+    openclawOverlaySafe
+    shypkgs-public.overlays.default
+  ];
 
   customOverlays = [
     (import ./shymega {inherit inputs lib;})
