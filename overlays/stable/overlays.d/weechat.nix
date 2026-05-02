@@ -4,7 +4,7 @@
 #
 _: prev: {
   weechatWithMyPlugins =
-    (prev.weechat.overrideAttrs (oldAttrs: {
+    (prev.weechat.overrideAttrs (_oldAttrs: {
       version = "4.10.0-dev";
       src = prev.fetchFromGitHub {
         owner = "shymega";
