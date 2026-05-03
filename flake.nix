@@ -84,7 +84,7 @@
     devenv.url = "github:cachix/devenv/latest";
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
-      inputs.nixpkgs.follows = "nixpkgs-shymega-zfs-bash-fix";
+      # inputs.nixpkgs.follows = "nixpkgs-shymega-zfs-bash-fix";
     };
     nix-openclaw.url = "github:openclaw/nix-openclaw";
   };
