@@ -61,7 +61,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-shymega.url = "github:shymega/nixpkgs?ref=shymega/staging";
-    nixpkgs-shymega-zfs-bash-fix.url = "github:shymega/nixpkgs?ref=shymega/nixpkgs-unstable-zfs-bash-fix";
     nixfigs-helpers.url = "github:shymega/nixfigs-helpers";
     flake-compat.follows = "nixfigs-helpers/flake-compat";
     agenix.follows = "nixfigs-helpers/agenix";
@@ -84,7 +83,6 @@
     devenv.url = "github:cachix/devenv/latest";
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
-      # inputs.nixpkgs.follows = "nixpkgs-shymega-zfs-bash-fix";
     };
     nix-openclaw.url = "github:openclaw/nix-openclaw";
   };
