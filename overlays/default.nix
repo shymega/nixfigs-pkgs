@@ -28,7 +28,7 @@
     devenv.overlays.default
     dzr-taskwarrior-recur.overlays.default
     nix-alien.overlays.default
-    nix-cachyos-kernel.overlays.pinned
+    nix-cachyos-kernel.overlays.default
     nix-doom-emacs-unstraightened.overlays.default
     nur.overlays.default
     openclawOverlaySafe
