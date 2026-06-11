@@ -14,7 +14,7 @@
   ) (builtins.readDir ./enabled.d);
 in {
   unstable = import inputs.nixpkgs-unstable {
-    localSystem = final.stdenv.hostPlatform;
+    localSystem = final.stdenv.hostPlatform.system;
     config = inputs.self.nixpkgs-config;
     overlays = builtins.attrValues unstableOverlays;
   };
