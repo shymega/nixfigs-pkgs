@@ -23,11 +23,16 @@
       if prev ? stdenv
       then inputs.nix-openclaw.overlays.default final prev
       else {};
+    hyprnixOverlaySafe = _: prev:
+      let system = prev.stdenv.hostPlatform.system;
+      in if hyprnix.packages ? ${system}
+         then hyprnix.packages.${system}
+         else {};
   in [
     agenix.overlays.default
     devenv.overlays.default
     dzr-taskwarrior-recur.overlays.default
-    (_: prev: hyprnix.packages.${prev.stdenv.hostPlatform.system})
+    hyprnixOverlaySafe
     nix-alien.overlays.default
     nix-cachyos-kernel.overlays.pinned
     nix-doom-emacs-unstraightened.overlays.default
