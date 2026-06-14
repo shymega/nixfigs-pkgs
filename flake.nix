@@ -81,5 +81,6 @@
     devenv.url = "github:cachix/devenv/latest";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel?ref=release";
     nix-openclaw.url = "github:openclaw/nix-openclaw";
+    hyprnix.url = "github:hyprwm/hyprnix";
   };
 }
