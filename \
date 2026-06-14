@@ -1,0 +1,56 @@
+fix: Fix mixed up `oldAttrs`/`prvevAttrs`
+
+# 50-character subject line
+#
+# 72-character wrapped longer description. This should answer:
+#
+# * Why was this change necessary?
+# * How does it address the problem?
+# * Are there any side effects?
+#
+# Include a link to the ticket, if any.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   psycopg.nix
+#	modified:   waybar.nix
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git c/overlays/stable/overlays.d/psycopg.nix i/overlays/stable/overlays.d/psycopg.nix
+index 9f261b4..5412755 100644
+--- c/overlays/stable/overlays.d/psycopg.nix
++++ i/overlays/stable/overlays.d/psycopg.nix
+@@ -5,8 +5,8 @@
+ _final: prev: {
+   python = prev.python.override {
+     packageOverrides = _python-final: python-prev: {
+-      psycopg = python-prev.psycopg.overrideAttrs (oldAttrs: {
+-        inherit (oldAttrs) src;
++      psycopg = python-prev.psycopg.overrideAttrs (finalAttrs: prevAttrs: {
++        inherit (prevAttrs) src;
+         skipTests = true;
+         doCheck = false;
+       });
+diff --git c/overlays/stable/overlays.d/waybar.nix i/overlays/stable/overlays.d/waybar.nix
+index 6318bce..4db4864 100644
+--- c/overlays/stable/overlays.d/waybar.nix
++++ i/overlays/stable/overlays.d/waybar.nix
+@@ -2,9 +2,9 @@
+ #
+ # SPDX-License-Identifier: GPL-3.0-only
+ _: prev: {
+-  waybar-patched = prev.waybar.overrideAttrs (oldAttrs: _: {
++  waybar-patched = prev.waybar.overrideAttrs (finalAttrs: prevAttrs: {
+     patches =
+-      (oldAttrs.patches or [])
++      (prevAttrs.patches or [])
+       ++ [
+         (prev.fetchpatch {
+           url = "https://patch-diff.githubusercontent.com/raw/Alexays/Waybar/pull/5121.patch";
