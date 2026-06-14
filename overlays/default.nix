@@ -23,11 +23,10 @@
       if prev ? stdenv
       then inputs.nix-openclaw.overlays.default final prev
       else {};
-    hyprnixOverlaySafe = _: prev:
-      let system = prev.stdenv.hostPlatform.system;
-      in if hyprnix.packages ? ${system}
-         then hyprnix.packages.${system}
-         else {};
+    hyprnixOverlaySafe = _: prev: let
+      system = prev.stdenv.hostPlatform.system;
+    in
+      hyprnix.packages.${system} or {};
   in [
     agenix.overlays.default
     devenv.overlays.default
