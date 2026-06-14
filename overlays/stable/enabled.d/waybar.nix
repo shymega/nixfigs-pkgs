@@ -1,0 +1,1 @@
+../overlays.d/waybar.nix
