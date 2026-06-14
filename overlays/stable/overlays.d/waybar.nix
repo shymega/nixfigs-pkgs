@@ -2,9 +2,9 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 _: prev: {
-  waybar-patched = prev.waybar.overrideAttrs (oldAttrs: _: {
+  waybar-patched = prev.waybar.overrideAttrs (finalAttrs: prevAttrs: {
     patches =
-      (oldAttrs.patches or [])
+      (prevAttrs.patches or [])
       ++ [
         (prev.fetchpatch {
           url = "https://patch-diff.githubusercontent.com/raw/Alexays/Waybar/pull/5121.patch";
