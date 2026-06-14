@@ -27,6 +27,7 @@
     agenix.overlays.default
     devenv.overlays.default
     dzr-taskwarrior-recur.overlays.default
+    (_: prev: hyprnix.packages.${prev.stdenv.hostPlatform.system})
     nix-alien.overlays.default
     nix-cachyos-kernel.overlays.pinned
     nix-doom-emacs-unstraightened.overlays.default
