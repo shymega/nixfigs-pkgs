@@ -5,8 +5,8 @@
 _final: prev: {
   python = prev.python.override {
     packageOverrides = _python-final: python-prev: {
-      psycopg = python-prev.psycopg.overrideAttrs (oldAttrs: {
-        inherit (oldAttrs) src;
+      psycopg = python-prev.psycopg.overrideAttrs (finalAttrs: prevAttrs: {
+        inherit (prevAttrs) src;
         skipTests = true;
         doCheck = false;
       });
