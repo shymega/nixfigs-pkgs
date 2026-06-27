@@ -61,10 +61,16 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-shymega.url = "github:shymega/nixpkgs?ref=shymega/staging";
-    nixfigs-helpers.url = "github:shymega/nixfigs-helpers";
+    nixfigs-helpers = {
+      url = "github:shymega/nixfigs-helpers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-compat.follows = "nixfigs-helpers/flake-compat";
     agenix.follows = "nixfigs-helpers/agenix";
-    nur.url = "github:nix-community/NUR";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-utils.follows = "nixfigs-helpers/flake-utils";
     android-nixpkgs = {
       url = "github:tadfisher/android-nixpkgs?ref=stable";
@@ -74,13 +80,38 @@
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dzr-taskwarrior-recur.url = "github:shymega/dzr-taskwarrior-recur";
-    breezy-desktop.url = "git+https://github.com/shymega/breezy-desktop?ref=shymega/add-nix-flake-support";
-    shypkgs-public.url = "github:shymega/shypkgs-public";
-    nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
-    devenv.url = "github:cachix/devenv/latest";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel?ref=release";
-    nix-openclaw.url = "github:openclaw/nix-openclaw";
-    hyprnix.url = "github:hyprwm/hyprnix";
+    dzr-taskwarrior-recur = {
+      url = "github:shymega/dzr-taskwarrior-recur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    breezy-desktop = {
+      url = "git+https://github.com/shymega/breezy-desktop?ref=shymega/add-nix-flake-support";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    shypkgs-public = {
+      url = "github:shymega/shypkgs-public";
+      inputs.nixfigs-helpers.follows = "nixfigs-helpers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-doom-emacs-unstraightened = {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    devenv = {
+      url = "github:cachix/devenv/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel?ref=release";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-openclaw = {
+      url = "github:openclaw/nix-openclaw";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprnix = {
+      url = "github:hyprwm/hyprnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
