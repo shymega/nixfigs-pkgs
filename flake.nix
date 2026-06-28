@@ -58,7 +58,7 @@
     };
   };
   inputs = {
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*";	
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-shymega.url = "github:shymega/nixpkgs?ref=shymega/staging";
     nixfigs-helpers = {
