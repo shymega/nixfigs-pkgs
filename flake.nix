@@ -113,5 +113,9 @@
       url = "github:hyprwm/hyprnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    waybar = {
+      url = "github:Alexays/Waybar?rev=1471cb26b80b0e61c8081e9145fbcdb2ad22e0d9";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
