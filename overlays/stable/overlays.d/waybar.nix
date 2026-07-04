@@ -2,14 +2,13 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 _: prev: {
-  waybar-patched = prev.waybar.overrideAttrs (_finalAttrs: prevAttrs: {
-    patches =
-      (prevAttrs.patches or [])
-      ++ [
-        (prev.fetchpatch {
-          url = "https://patch-diff.githubusercontent.com/raw/Alexays/Waybar/pull/5121.patch";
-          hash = "sha256-Av8UFoZRyn/RgCemIH3cljL37b5BV6CAFSa8IyYJyyc=";
-        })
-      ];
+  waybar-patched = prev.waybar.overrideAttrs (_: _: {
+    version = "git";
+    src = prev.fetchFromGitHub {
+      owner = "Alexays";
+      repo = "Waybar";
+      rev = "1471cb26b80b0e61c8081e9145fbcdb2ad22e0d9";
+      hash = "sha256-7mQEyyENEH1TNxoB+7oo5ZzDR6n3gKG3QfPU5JO0kvM=";
+    };
   });
 }
