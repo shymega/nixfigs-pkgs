@@ -38,6 +38,7 @@
     nur.overlays.default
     openclawOverlaySafe
     shypkgs-public.overlays.default
+    waybar.overlays.default
   ];
 
   customOverlays = [
