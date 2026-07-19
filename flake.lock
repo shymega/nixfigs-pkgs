@@ -2436,11 +2436,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1784495645,
+        "lastModified": 1784498408,
         "narHash": "sha256-HtyI0mHBDcUDKwXCWnZMv9jq70hrM5LkA4G5FS1PxNY=",
         "owner": "shymega",
         "repo": "nixfigs-helpers",
-        "rev": "d20b6d83cf20a0e232348e681cc4dda2ae8e7474",
+        "rev": "db6569b81b5728afaf8cdac1b09e1200991dffa6",
         "type": "github"
       },
       "original": {
@@ -2482,11 +2482,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1784494590,
-        "narHash": "sha256-Gn7vGw9aIyoJy7GkNbsHXvSkvXeNLoP9ZiK1RtS/0M8=",
+        "lastModified": 1784497964,
+        "narHash": "sha256-vlHUuqAcbcH2RKmHbPiuQzbv1pnzzavXnI62RD0bqCU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "472e4428b5aee60be7ac35c03662ebb36c901edd",
+        "rev": "241313f4e8e508cb9b13278c2b0fa25b9ca27163",
         "type": "github"
       },
       "original": {
@@ -2656,11 +2656,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784495165,
-        "narHash": "sha256-zD45cc6smROo7v+bl6yT45JsU/LGR6i3meIIaJbMnfE=",
+        "lastModified": 1784496607,
+        "narHash": "sha256-DObuLF+xvBjLcla27ROURDIG+sUrGommrgLitkDdS6w=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "9a701c82547c5e1ccb1a5a7652a03bd4283404b1",
+        "rev": "6034faa2c3180306c5aa2bfb009fdca07f07fe60",
         "type": "github"
       },
       "original": {
@@ -2841,11 +2841,11 @@
         "nixpkgs-master": "nixpkgs-master"
       },
       "locked": {
-        "lastModified": 1784495611,
-        "narHash": "sha256-npWQFaOWHts0hXpOovsdXAqEaQd5voA1iwD9QDhUya4=",
+        "lastModified": 1784498383,
+        "narHash": "sha256-cQx1mfmgO43IaNiSm4kTbQBweRgdyKiOAL5/WQWvuvw=",
         "owner": "shymega",
         "repo": "shypkgs-public",
-        "rev": "8941dee1fe6cdf07dbcdafc9d427d6094618fa99",
+        "rev": "81323e4a4957b2ce753e6ebf9ba54f1364639283",
         "type": "github"
       },
       "original": {
@@ -3006,6 +3006,7 @@
       "original": {
         "owner": "Alexays",
         "repo": "Waybar",
+        "rev": "456f78ecb1cf16e5397a29691e69fc2906843387",
         "type": "github"
       }
     },
