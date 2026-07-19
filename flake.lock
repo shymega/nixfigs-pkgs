@@ -2996,17 +2996,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1783166008,
-        "narHash": "sha256-7mQEyyENEH1TNxoB+7oo5ZzDR6n3gKG3QfPU5JO0kvM=",
+        "lastModified": 1784481351,
+        "narHash": "sha256-YbohiACWamqR/9JjTWNzv/jCUkzl1l/Gey3KzTts63w=",
         "owner": "Alexays",
         "repo": "Waybar",
-        "rev": "1471cb26b80b0e61c8081e9145fbcdb2ad22e0d9",
+        "rev": "456f78ecb1cf16e5397a29691e69fc2906843387",
         "type": "github"
       },
       "original": {
         "owner": "Alexays",
         "repo": "Waybar",
-        "rev": "1471cb26b80b0e61c8081e9145fbcdb2ad22e0d9",
         "type": "github"
       }
     },
