@@ -47,10 +47,11 @@
         import inputs.nixfigs-helpers.helpers.devShells {inherit pkgs self system;}
     );
     nixpkgs-config = {
-      allowUnfree = true;
-      allowUnsupportedSystem = false;
       allowBroken = true;
       allowInsecurePredicate = _: true;
+      allowUnfree = true;
+      allowUnsupportedSystem = false;
+      segger-jlink.acceptLicense = true;
     };
     overlays = import ./overlays {
       inherit inputs;
