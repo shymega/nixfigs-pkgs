@@ -54,7 +54,6 @@
     };
     overlays = import ./overlays {
       inherit inputs;
-      inherit (inputs.nixpkgs) lib;
     };
   };
   inputs = {
