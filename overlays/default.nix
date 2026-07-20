@@ -3,8 +3,8 @@
 # SPDX-License-Identifier: GPL-3.0-only
 #
 {
-  lib,
   inputs,
+  lib ? inputs.nixpkgs.lib,
   ...
 }: let
   importStableOverlay = overlay: lib.composeExtensions (_: _: {__inputs = inputs;}) (import (./stable/enabled.d + "/${overlay}"));
