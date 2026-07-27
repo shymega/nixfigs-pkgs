@@ -12,17 +12,4 @@ final: prev: {
       hash = "sha256-XNTuyQRH01NDW/lAQsf3gIrGDMhTP9NLL0r5gIO93Qw=";
     };
   });
-
-  weechatWithPlugins = final.weechat.override {
-    configure = {availablePlugins, ...}: {
-      scripts = with prev.weechatScripts; [
-        autosort
-        url_hint
-        weechat-autosort
-        weechat-go
-        weechat-notify-send
-      ];
-      plugins = builtins.attrValues availablePlugins;
-    };
-  };
 }
