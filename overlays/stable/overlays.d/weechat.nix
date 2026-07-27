@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 #
-final: prev: {
+_final: prev: {
   weechat = prev.weechat.overrideAttrs (_: {
     version = "4.10.0-dev";
     src = prev.fetchFromGitHub {
