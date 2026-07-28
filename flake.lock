@@ -67,16 +67,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1785170094,
-        "narHash": "sha256-YMh/llUAd7ENxYQozt8oZEUcD9jlZHIKYDVbOeVkh8Y=",
+        "lastModified": 1785273260,
+        "narHash": "sha256-DTVEXr0C5B/f+XR55IMcRa0lgL4dmBYoq773UDy43Hw=",
         "owner": "hyprwm",
         "repo": "aquamarine",
-        "rev": "a79fb21b2e2a82dd061a6d071802bcf38bd5c383",
+        "rev": "74711e4f96e60b6210617d0f7644c25ea5d3a749",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
-        "ref": "v0.14.0",
+        "ref": "pull/316/merge",
         "repo": "aquamarine",
         "type": "github"
       }
@@ -1291,16 +1291,16 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1785275607,
-        "narHash": "sha256-8+oB/uAU5vpBm9N54tYXcD/qeeHR8pGTq5VqCoZl+hI=",
+        "lastModified": 1785276247,
+        "narHash": "sha256-x8ieFC/kXCMekyt87OV6J5SZXJO4qv1W3LCkhzcpBLU=",
         "owner": "shymega",
         "repo": "hyprnix",
-        "rev": "fadab0b1b37591822b690be8600b88244d5cfc1c",
+        "rev": "d8768de4612aad82ba9b52b0250477c06a317cb1",
         "type": "github"
       },
       "original": {
         "owner": "shymega",
-        "ref": "shymega/manual-bump",
+        "ref": "shymega/manual-aq-bump-pr",
         "repo": "hyprnix",
         "type": "github"
       }

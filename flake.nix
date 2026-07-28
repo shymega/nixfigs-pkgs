@@ -109,7 +109,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprnix = {
-      url = "github:shymega/hyprnix?ref=shymega/manual-bump";
+      url = "github:shymega/hyprnix?ref=shymega/manual-aq-bump-pr";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     waybar = {
