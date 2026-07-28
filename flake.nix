@@ -109,7 +109,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprnix = {
-      url = "github:shymega/hyprnix?ref=shymega/downgrade-hyprland-v0.56.0";
+      url = "github:shymega/hyprnix?ref=shymega/downgrade-hyprland-v0.56.0-and-uprev-aquamarine";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     waybar = {
       url = "github:Alexays/Waybar?rev=456f78ecb1cf16e5397a29691e69fc2906843387";
