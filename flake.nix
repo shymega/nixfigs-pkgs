@@ -109,7 +109,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprnix = {
-      url = "github:shymega/hyprnix?ref=shymega/hyprland-latest-git";
+      url = "github:shymega/hyprnix?ref=shymega/downgrade-hyprland-v0.55.4";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     waybar = {
