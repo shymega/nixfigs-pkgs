@@ -102,7 +102,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-cachyos-kernel = {
-      url = "github:xddxdd/nix-cachyos-kernel?ref=release";
+      url = "github:xddxdd/nix-cachyos-kernel";
     };
     nix-openclaw = {
       url = "github:openclaw/nix-openclaw";
