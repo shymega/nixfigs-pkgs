@@ -56,6 +56,7 @@
     overlays = import ./overlays {
       inherit inputs;
     };
+    unstable-nixpkgs = (import ./overlays/unstable {inherit inputs; lib = inputs.nixpkgs.lib;});
   };
   inputs = {
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
