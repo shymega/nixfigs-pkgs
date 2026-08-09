@@ -102,7 +102,7 @@
     };
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel";
-    
+
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-openclaw = {
@@ -111,7 +111,7 @@
     };
     hyprnix = {
       url = "github:shymega/hyprnix?ref=shymega/downgrade-hyprland-v0.55.4";
-    
+
       inputs.nixpkgs.follows = "nixpkgs";
     };
     waybar = {
