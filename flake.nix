@@ -113,8 +113,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprnix = {
-      url = "github:shymega/hyprnix?ref=shymega/manual-bump";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:shymega/hyprnix?ref=shymega/downgrade-hyprland-v0.55.4";
     };
     waybar = {
       url = "github:Alexays/Waybar?rev=456f78ecb1cf16e5397a29691e69fc2906843387";
