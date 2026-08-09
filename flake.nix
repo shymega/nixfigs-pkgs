@@ -75,11 +75,6 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.follows = "nixfigs-helpers/flake-utils";
-    android-nixpkgs = {
-      url = "github:tadfisher/android-nixpkgs?ref=stable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -107,6 +102,8 @@
     };
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel";
+    
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-openclaw = {
       url = "github:openclaw/nix-openclaw";
@@ -114,6 +111,8 @@
     };
     hyprnix = {
       url = "github:shymega/hyprnix?ref=shymega/downgrade-hyprland-v0.55.4";
+    
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     waybar = {
       url = "github:Alexays/Waybar?rev=456f78ecb1cf16e5397a29691e69fc2906843387";
