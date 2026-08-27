@@ -29,6 +29,7 @@
       hyprnix.packages.${system} or {};
   in [
     agenix.overlays.default
+    atuin.overlays.default
     devenv.overlays.default
     dzr-taskwarrior-recur.overlays.default
     hyprnixOverlaySafe

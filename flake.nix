@@ -117,5 +117,9 @@
       url = "github:Alexays/Waybar?rev=456f78ecb1cf16e5397a29691e69fc2906843387";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    atuin = {
+      url = "github:atuinsh/atuin?ref=v18.20.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
