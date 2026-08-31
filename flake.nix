@@ -118,7 +118,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     atuin = {
-      url = "github:atuinsh/atuin?ref=v18.20.1";
+      url = "github:atuinsh/atuin?ref=v18.21.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
