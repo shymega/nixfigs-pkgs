@@ -158,18 +158,18 @@
       },
       "locked": {
         "lastModified": 1789255864,
-        "narHash": "sha256-DBSw/1UALa3kslK3uzbDN337p+bcAAWl/SoWvGHiYcY=",
-        "owner": "shymega",
-        "repo": "breezy-desktop",
+        "narHash": "sha256-+mNhm4QVNgPyOi7pA3nKESMq/lgndediIz2TneZW2PY=",
+        "ref": "shymega/add-nix-flake-support",
         "rev": "8db51ed4ad57cadfdef1ae931797228880f3d999",
+        "revCount": 518,
         "submodules": true,
-        "type": "github"
+        "type": "git",
+        "url": "https://github.com/shymega/breezy-desktop"
       },
       "original": {
-        "owner": "shymega",
         "ref": "shymega/add-nix-flake-support",
-        "repo": "breezy-desktop",
-        "type": "github"
+        "type": "git",
+        "url": "https://github.com/shymega/breezy-desktop"
       }
     },
     "cachix": {
