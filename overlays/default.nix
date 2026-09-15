@@ -30,6 +30,7 @@
   in [
     agenix.overlays.default
     atuin.overlays.default
+    breezy-desktop.overlays.default
     devenv.overlays.default
     dzr-taskwarrior-recur.overlays.default
     hyprnixOverlaySafe
