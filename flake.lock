@@ -1226,7 +1226,7 @@
         "hyprwayland-scanner": "hyprwayland-scanner_3",
         "hyprwire": "hyprwire",
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "nixpkgs"
         ],
         "systems": "systems_2",
         "xdph": "xdph"
@@ -1937,11 +1937,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1789687153,
+        "lastModified": 1789687769,
         "narHash": "sha256-ZKIQwkTstfVdSIMPSUlx0u+m9sJW2bQA5n/s/rhYVo4=",
         "owner": "shymega",
         "repo": "nixfigs-helpers",
-        "rev": "e8f1ab1cfee76d16a0cfca4e8b88a2a6c918c067",
+        "rev": "ca87400c539d490fb7c4d9020fdc54d888438891",
         "type": "github"
       },
       "original": {
