@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 #
 _final: prev: {
-  glaze = prev.glaze.overrideAttrs (oldAttrs: {
+  glaze = prev.glaze.overrideAttrs (_oldAttrs: {
     version = "7.9.1";
     src = prev.fetchFromGitHub {
       owner = "stephenberry";
