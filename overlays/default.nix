@@ -33,7 +33,6 @@
     breezy-desktop.overlays.default
     devenv.overlays.default
     dzr-taskwarrior-recur.overlays.default
-    hyprnixOverlaySafe
     nix-alien.overlays.default
     nix-cachyos-kernel.overlays.pinned
     nix-doom-emacs-unstraightened.overlays.default
