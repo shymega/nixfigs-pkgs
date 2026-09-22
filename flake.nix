@@ -109,9 +109,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprnix = {
-      url = "github:shymega/hyprnix?ref=shymega/downgrade-hyprland-v0.55.4";
+      url = "github:shymega/hyprnix?rev=bafdb6c987d49b6da1c0ccfed834cafd7b8b62dd";
 
-      inputs.nixpkgs.follows = "nixpkgs";
+      # Hyprland's nix/overlays.nix hyprland-packages composition never
+      # overlays hyprtoolkit, so hyprland-guiutils always builds against
+      # nixpkgs' own stock hyprtoolkit. Pinned to the narrow nixpkgs snapshot
+      # where that stock hyprtoolkit (0.5.4) and hyprutils (0.14.2) are still
+      # compatible -- nixpkgs bumped hyprtoolkit to 0.6.0 (needs hyprutils
+      # >= 0.14.2) the very next day, breaking the build until upstream fixes
+      # the overlay.
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/be95a4e32b877420cc508c4a3152e916d69836ba";
     };
     waybar = {
       url = "github:Alexays/Waybar?rev=456f78ecb1cf16e5397a29691e69fc2906843387";
