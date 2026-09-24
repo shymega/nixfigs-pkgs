@@ -84,7 +84,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     breezy-desktop = {
-      url = "git+https://github.com/shymega/breezy-desktop?ref=shymega/add-nix-flake-support";
+      url = "git+https://github.com/shymega/breezy-desktop?ref=shymega/add-nix-flake-support&submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     shypkgs-public = {
