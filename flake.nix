@@ -108,19 +108,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprnix = {
-      url = "github:shymega/hyprnix?rev=bafdb6c987d49b6da1c0ccfed834cafd7b8b62dd";
+      url = "github:shymega/hyprnix?ref=shymega/downgrade-hyprland-v0.55.4";
 
-      # Must follow the top-level nixpkgs: hyprnix.packages.${system} is
-      # overlaid directly onto our pkgs (see overlays/default.nix), so a
-      # divergent nixpkgs pin here builds hyprland et al. against a
-      # different glibc derivation than the rest of the system, even when
-      # both report the same glibc version -- breaking every consumer
-      # that mixes the two in one closure. Hyprland's nix/overlays.nix
-      # hyprland-packages composition also never overlays hyprtoolkit, so
-      # hyprland-guiutils always builds against nixpkgs' own stock
-      # hyprtoolkit; following top-level nixpkgs here happens to still
-      # pair a compatible stock hyprtoolkit/hyprutils (0.5.4/0.14.1) --
-      # re-check this if bumping nixpkgs ever breaks that pairing again.
       inputs.nixpkgs.follows = "nixpkgs";
     };
     waybar = {
