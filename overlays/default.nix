@@ -25,8 +25,42 @@
       else {};
     hyprnixOverlaySafe = _: prev: let
       system = prev.stdenv.hostPlatform.system;
+      hyprnixPkgs = hyprnix.packages.${system} or {};
+      # Only rescan CRTCs on re-enable, not on disable, so a DPMS-off-induced
+      # connector flap doesn't force a full CRTC reassignment/modeset. See
+      # pkgs/aquamarine/aquamarine-dpms-crtc-churn.patch.
+      aquamarine = hyprnixPkgs.aquamarine.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [../pkgs/aquamarine/aquamarine-dpms-crtc-churn.patch];
+      });
+      # None of these expose aquamarine as an `.override`-able argument, so
+      # the patched build has to be swapped in afterwards via overrideAttrs.
+      relinkAquamarine = pkg: let
+        swap = dep:
+          if lib.getName dep == lib.getName aquamarine
+          then aquamarine
+          else dep;
+      in
+        pkg.overrideAttrs (old: {
+          buildInputs = map swap (old.buildInputs or []);
+          propagatedBuildInputs = map swap (old.propagatedBuildInputs or []);
+        });
     in
-      hyprnix.packages.${system} or {};
+      if hyprnixPkgs ? aquamarine
+      then
+        hyprnixPkgs
+        // {
+          inherit aquamarine;
+          hyprland = relinkAquamarine hyprnixPkgs.hyprland;
+          hyprland-guiutils = relinkAquamarine hyprnixPkgs.hyprland-guiutils;
+          hyprlauncher = relinkAquamarine hyprnixPkgs.hyprlauncher;
+          hyprpaper = relinkAquamarine hyprnixPkgs.hyprpaper;
+          hyprpolkitagent = relinkAquamarine hyprnixPkgs.hyprpolkitagent;
+          hyprpwcenter = relinkAquamarine hyprnixPkgs.hyprpwcenter;
+          hyprshutdown = relinkAquamarine hyprnixPkgs.hyprshutdown;
+          hyprtoolkit = relinkAquamarine hyprnixPkgs.hyprtoolkit;
+          xdg-desktop-portal-hyprland = relinkAquamarine hyprnixPkgs.xdg-desktop-portal-hyprland;
+        }
+      else hyprnixPkgs;
   in [
     agenix.overlays.default
     atuin.overlays.default
