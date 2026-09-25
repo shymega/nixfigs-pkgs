@@ -111,7 +111,7 @@
       url = "github:shymega/hyprnix?ref=shymega/nix-gcc-stdenv-fixes";
     };
     waybar = {
-      url = "github:Alexays/Waybar?rev=456f78ecb1cf16e5397a29691e69fc2906843387";
+      url = "github:Alexays/Waybar?rev=16843896794a9c595139318420f81f40e84f8c78";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     atuin = {
