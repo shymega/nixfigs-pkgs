@@ -44,19 +44,29 @@
           buildInputs = map swap (old.buildInputs or []);
           propagatedBuildInputs = map swap (old.propagatedBuildInputs or []);
         });
+      # hyprnix pins its own nixpkgs (nixos-unstable), which has drifted to
+      # glaze 8.x. Hyprland's CMakeLists still find_package()s glaze 7.2.0
+      # under CMake's default SameMajorVersion compatibility, so major 8
+      # is reported "not found" and the build falls back to a git+network
+      # FetchContent that the build sandbox can't perform. nixfigs-pkgs'
+      # own nixpkgs pin still has a compatible major-7 glaze, so use that.
+      glazeHyprland = prev.glaze.override {
+        enableSSL = false;
+        enableInterop = false;
+      };
     in
       if hyprnixPkgs ? aquamarine
       then
         hyprnixPkgs
         // {
           inherit aquamarine;
-          hyprland = relinkAquamarine hyprnixPkgs.hyprland;
+          hyprland = relinkAquamarine (hyprnixPkgs.hyprland.override {glaze-hyprland = glazeHyprland;});
           hyprland-guiutils = relinkAquamarine hyprnixPkgs.hyprland-guiutils;
           hyprlauncher = relinkAquamarine hyprnixPkgs.hyprlauncher;
           hyprpaper = relinkAquamarine hyprnixPkgs.hyprpaper;
           hyprpolkitagent = relinkAquamarine hyprnixPkgs.hyprpolkitagent;
           hyprpwcenter = relinkAquamarine hyprnixPkgs.hyprpwcenter;
-          hyprshutdown = relinkAquamarine hyprnixPkgs.hyprshutdown;
+          hyprshutdown = relinkAquamarine (hyprnixPkgs.hyprshutdown.override {glaze = glazeHyprland;});
           hyprtoolkit = relinkAquamarine hyprnixPkgs.hyprtoolkit;
           xdg-desktop-portal-hyprland = relinkAquamarine hyprnixPkgs.xdg-desktop-portal-hyprland;
         }
