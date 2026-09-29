@@ -75,10 +75,7 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-alien = {
-      url = "github:thiagokokada/nix-alien";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-alien.url = "github:thiagokokada/nix-alien";
     dzr-taskwarrior-recur = {
       url = "github:shymega/dzr-taskwarrior-recur";
       inputs.nixpkgs.follows = "nixpkgs";
