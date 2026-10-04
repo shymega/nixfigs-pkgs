@@ -91,10 +91,13 @@
     (import ./shymega {inherit inputs lib;})
     (import ./unstable {inherit inputs lib;})
   ];
-in
-  stableOverlaysWithImports
-  // {
-    default = lib.composeManyExtensions (
-      defaultOverlays ++ customOverlays ++ (lib.attrValues stableOverlaysWithImports)
-    );
-  }
+in {
+  # Only expose the composed overlay: every consumer applies overlays via
+  # `builtins.attrValues self.overlays`, so also exposing the individual
+  # stable overlays here would double-apply each of them (already included
+  # in `default`) — non-idempotent overlays like nix-output-monitor's patch
+  # then fail to apply a second time.
+  default = lib.composeManyExtensions (
+    defaultOverlays ++ customOverlays ++ (lib.attrValues stableOverlaysWithImports)
+  );
+}
