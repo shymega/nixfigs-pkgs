@@ -1300,11 +1300,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1790536399,
-        "narHash": "sha256-GIfvOoNftrwWojc1QZ19H6v1049WDZlLQApswvxTzRY=",
+        "lastModified": 1791224898,
+        "narHash": "sha256-PAGnbvtxwoWWuVy+r7Qi9JqtW48m9Ye2h3LUUdRmmIQ=",
         "owner": "shymega",
         "repo": "hyprnix",
-        "rev": "7d8fb050b8942cd209db40ab3c7abf135e1a1ae7",
+        "rev": "2eb178399e795923bf9e80caabe89f1395091d43",
         "type": "github"
       },
       "original": {
@@ -1431,8 +1431,8 @@
       },
       "original": {
         "owner": "hyprwm",
+        "ref": "main",
         "repo": "hyprpolkitagent",
-        "rev": "0e4492994e211b9af9365f16a9fda35d32e106bb",
         "type": "github"
       }
     },
