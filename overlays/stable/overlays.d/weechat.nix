@@ -2,14 +2,15 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-_final: prev: {
-  weechat = prev.weechat.overrideAttrs (_: {
-    version = "4.10.0-dev";
+_: prev: {
+  weechat = prev.weechat.overrideAttrs (_: _: {
+    version = "unstable";
+
     src = prev.fetchFromGitHub {
       owner = "shymega";
       repo = "weechat";
-      rev = "cdcdfd7522d0aa723d05447068cbd36a49f6d064";
-      hash = "sha256-XNTuyQRH01NDW/lAQsf3gIrGDMhTP9NLL0r5gIO93Qw=";
+      rev = "e9220036278bfdcef798da25576f636abd1215d8";
+      hash = "sha256-EQVM3sBkwLXrqPNt6isPkh8yZ7uAFV0+XWdOo+D+LZo=";
     };
   });
 }
