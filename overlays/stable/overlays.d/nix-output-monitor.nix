@@ -3,9 +3,9 @@ final: prev: {
     extraComposeFunctions = [
       (prev.haskell.lib.compose.appendPatch (
         prev.fetchpatch2 {
-          url = "https://github.com/maralorn/nix-output-monitor/commit/3c2ae037013e840046ed9785c4da82aa1c628872.patch";
+          url = "https://patch-diff.githubusercontent.com/raw/maralorn/nix-output-monitor/pull/321.patch";
           relative = "nix-output-monitor";
-          hash = "sha256-kwmbXQZI+UyOVCAngr6cYpwqIbbG48MJgHzFpCt138o=";
+          hash = "sha256-uleti4hBzGN/uQS7CxUi4FaVs+fy+Q/rmqDPNPXBNiM=";
         }
       ))
     ];
