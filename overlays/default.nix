@@ -54,13 +54,13 @@
         enableSSL = false;
         enableInterop = false;
       };
+      hyprland = relinkAquamarine (hyprnixPkgs.hyprland.override {glaze-hyprland = glazeHyprland;});
     in
       if hyprnixPkgs ? aquamarine
       then
         hyprnixPkgs
         // {
-          inherit aquamarine;
-          hyprland = relinkAquamarine (hyprnixPkgs.hyprland.override {glaze-hyprland = glazeHyprland;});
+          inherit aquamarine hyprland;
           hyprland-guiutils = relinkAquamarine hyprnixPkgs.hyprland-guiutils;
           hyprlauncher = relinkAquamarine hyprnixPkgs.hyprlauncher;
           hyprpaper = relinkAquamarine hyprnixPkgs.hyprpaper;
@@ -69,6 +69,9 @@
           hyprshutdown = relinkAquamarine (hyprnixPkgs.hyprshutdown.override {glaze = glazeHyprland;});
           hyprtoolkit = relinkAquamarine hyprnixPkgs.hyprtoolkit;
           xdg-desktop-portal-hyprland = relinkAquamarine hyprnixPkgs.xdg-desktop-portal-hyprland;
+          # nixpkgs' hyprshot wraps whatever `hyprland` it was called with;
+          # point it at the overlay's patched derivation instead.
+          hyprshot = prev.hyprshot.override {inherit hyprland;};
         }
       else hyprnixPkgs;
   in [
