@@ -24,7 +24,7 @@
       then inputs.nix-openclaw.overlays.default final prev
       else {};
     hyprnixOverlaySafe = _: prev: let
-      system = prev.stdenv.hostPlatform.system;
+      inherit (prev.stdenv.hostPlatform) system;
       hyprnixPkgs = hyprnix.packages.${system} or {};
       # Only rescan CRTCs on re-enable, not on disable, so a DPMS-off-induced
       # connector flap doesn't force a full CRTC reassignment/modeset. See
