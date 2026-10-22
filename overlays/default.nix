@@ -32,6 +32,17 @@
       aquamarine = hyprnixPkgs.aquamarine.overrideAttrs (old: {
         patches = (old.patches or []) ++ [../pkgs/aquamarine/aquamarine-dpms-crtc-churn.patch];
       });
+      # Stock hyprlock aborts (SIGABRT, RASSERT at hyprlock.cpp:412) the
+      # instant it sees a POLLHUP on any polled fd -- including its own
+      # Wayland connection during a DPMS/monitor-reconnect or suspend/resume
+      # cycle (hyprwm/hyprlock#991), which upstream's own SessionLockManager
+      # confirms can flash Hyprland's "lockdead" screen. The real fix
+      # (hyprwm/hyprlock#1052, unmerged) makes that a graceful, logged exit(1)
+      # instead of an abort. hyprlock has no aquamarine dependency, so this
+      # just needs the patch, not relinkAquamarine.
+      hyprlock = hyprnixPkgs.hyprlock.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [../pkgs/hyprlock/hyprlock-graceful-disconnect.patch];
+      });
       # None of these expose aquamarine as an `.override`-able argument, so
       # the patched build has to be swapped in afterwards via overrideAttrs.
       relinkAquamarine = pkg: let
@@ -60,7 +71,7 @@
       then
         hyprnixPkgs
         // {
-          inherit aquamarine hyprland;
+          inherit aquamarine hyprland hyprlock;
           hyprland-guiutils = relinkAquamarine hyprnixPkgs.hyprland-guiutils;
           hyprlauncher = relinkAquamarine hyprnixPkgs.hyprlauncher;
           hyprpaper = relinkAquamarine hyprnixPkgs.hyprpaper;
