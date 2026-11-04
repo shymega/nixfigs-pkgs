@@ -29,8 +29,20 @@
       # Only rescan CRTCs on re-enable, not on disable, so a DPMS-off-induced
       # connector flap doesn't force a full CRTC reassignment/modeset. See
       # pkgs/aquamarine/aquamarine-dpms-crtc-churn.patch.
+      #
+      # DisplayLink/evdi devices have no render node, so registering them
+      # with a primary GPU makes aquamarine try (and fail/time out) to stand
+      # up a renderer on them -- the actual cause of the long Hyprland
+      # startup stall and black DisplayLink panels, not the atomic-commit
+      # path AQ_NO_ATOMIC targets (hyprwm/aquamarine#22). See
+      # pkgs/aquamarine/aquamarine-displaylink-no-render.patch.
       aquamarine = hyprnixPkgs.aquamarine.overrideAttrs (old: {
-        patches = (old.patches or []) ++ [../pkgs/aquamarine/aquamarine-dpms-crtc-churn.patch];
+        patches =
+          (old.patches or [])
+          ++ [
+            ../pkgs/aquamarine/aquamarine-dpms-crtc-churn.patch
+            ../pkgs/aquamarine/aquamarine-displaylink-no-render.patch
+          ];
       });
       # Stock hyprlock aborts (SIGABRT, RASSERT at hyprlock.cpp:412) the
       # instant it sees a POLLHUP on any polled fd -- including its own
