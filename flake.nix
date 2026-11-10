@@ -71,7 +71,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-alien.url = "github:thiagokokada/nix-alien";
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dzr-taskwarrior-recur = {
       url = "github:shymega/dzr-taskwarrior-recur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -102,6 +105,8 @@
     };
     hyprnix = {
       url = "github:shymega/hyprnix?ref=shymega/nix-gcc-stdenv-fixes";
+    
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     waybar = {
       url = "github:Alexays/Waybar?rev=16843896794a9c595139318420f81f40e84f8c78";
