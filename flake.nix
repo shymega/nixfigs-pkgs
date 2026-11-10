@@ -105,7 +105,7 @@
     };
     hyprnix = {
       url = "github:shymega/hyprnix?ref=shymega/nix-gcc-stdenv-fixes";
-    
+
       inputs.nixpkgs.follows = "nixpkgs";
     };
     waybar = {
