@@ -115,5 +115,6 @@
       url = "github:atuinsh/atuin?ref=v18.24.6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flox.url = "github:flox/flox/latest";
   };
 }
