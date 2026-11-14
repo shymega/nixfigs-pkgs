@@ -59,8 +59,8 @@
   };
   inputs = {
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixpkgs-unstable";
+    nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     nixpkgs-shymega.url = "github:shymega/nixpkgs?ref=shymega/staging";
     nixfigs-helpers = {
       url = "github:shymega/nixfigs-helpers";
@@ -94,7 +94,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     devenv = {
-      url = "github:cachix/devenv/latest";
+      url = "github:cachix/devenv?ref=latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-cachyos-kernel = {
@@ -115,6 +115,6 @@
       url = "github:atuinsh/atuin?ref=v18.24.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flox.url = "github:flox/flox/latest";
+    flox.url = "github:flox/flox?ref=latest";
   };
 }
