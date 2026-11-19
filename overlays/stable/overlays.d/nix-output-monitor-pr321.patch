@@ -1,0 +1,121 @@
+diff --git a/lib/NOM/NixMessage/JSON.hs b/lib/NOM/NixMessage/JSON.hs
+index 4153fbba..e1ed6bb3 100644
+--- a/lib/NOM/NixMessage/JSON.hs
++++ b/lib/NOM/NixMessage/JSON.hs
+@@ -40,6 +40,7 @@
+   PostBuildHookType :: ActivityType
+   BuildWaitingType :: ActivityType
+   FetchTreeType :: ActivityType
++  OtherType :: Int -> ActivityType
+   deriving stock (Show, Eq)
+ 
+ -- | nix src/libutil/include/nix/util/logging.hh ActivityType
+diff --git a/lib/NOM/NixMessage/JSON.hs b/lib/NOM/NixMessage/JSON.hs
+index e1ed6bb3..fb99ae48 100644
+--- a/lib/NOM/NixMessage/JSON.hs
++++ b/lib/NOM/NixMessage/JSON.hs
+@@ -72,6 +72,7 @@
+   SetExpected :: ActivityType -> Int -> ActivityResult
+   PostBuildLogLine :: Text -> ActivityResult
+   FetchStatus :: Text -> ActivityResult
++  OtherResult :: Int -> ActivityResult
+   deriving stock (Show, Eq)
+ 
+ data ActivityProgress = MkActivityProgress
+diff --git a/lib/NOM/Parser/JSON.hs b/lib/NOM/Parser/JSON.hs
+index 79e3a8b3..f51bd90e 100644
+--- a/lib/NOM/Parser/JSON.hs
++++ b/lib/NOM/Parser/JSON.hs
+@@ -45,7 +45,7 @@
+   110 -> pure PostBuildHookType
+   111 -> pure BuildWaitingType
+   112 -> pure FetchTreeType
+-  other -> fail ("invalid activity type: " <> show other)
++  other -> pure (OtherType other)
+ 
+ parseAction :: JSON.Decoder NixJSONMessage
+ parseAction = JSON.object $ do
+@@ -136,6 +136,7 @@
+   let txt = textFields
+   activity <- case activityType of
+     UnknownType -> pure Unknown
++    OtherType _ -> pure Unknown
+     CopyPathType ->
+       three txt >>= \(path, from, to) -> do
+         path' <- parseStorePath path
+diff --git a/lib/NOM/Parser/JSON.hs b/lib/NOM/Parser/JSON.hs
+index f51bd90e..62bffbfd 100644
+--- a/lib/NOM/Parser/JSON.hs
++++ b/lib/NOM/Parser/JSON.hs
+@@ -121,7 +121,7 @@
+       pure $ SetExpected activityType number
+     107 -> PostBuildLogLine <$> one txt
+     108 -> FetchStatus <$> one txt
+-    other -> fail ("invalid activity result type: " <> show other)
++    other -> pure (OtherResult other)
+   pure MkResultAction{id = idField, result}
+ 
+ parseStopAction :: JSON.FieldsDecoder StopAction
+diff --git a/lib/NOM/Parser/JSON.hs b/lib/NOM/Parser/JSON.hs
+index 62bffbfd..278bc4c3 100644
+--- a/lib/NOM/Parser/JSON.hs
++++ b/lib/NOM/Parser/JSON.hs
+@@ -29,23 +29,23 @@
+   7 -> pure Vomit
+   other -> fail ("invalid verbosity level:" <> show other)
+ 
+-parseActivityType :: (MonadFail m) => Int -> m ActivityType
++parseActivityType :: Int -> ActivityType
+ parseActivityType = \case
+-  0 -> pure UnknownType
+-  100 -> pure CopyPathType
+-  101 -> pure FileTransferType
+-  102 -> pure RealiseType
+-  103 -> pure CopyPathsType
+-  104 -> pure BuildsType
+-  105 -> pure BuildType
+-  106 -> pure OptimiseStoreType
+-  107 -> pure VerifyPathsType
+-  108 -> pure SubstituteType
+-  109 -> pure QueryPathInfoType
+-  110 -> pure PostBuildHookType
+-  111 -> pure BuildWaitingType
+-  112 -> pure FetchTreeType
+-  other -> pure (OtherType other)
++  0 -> UnknownType
++  100 -> CopyPathType
++  101 -> FileTransferType
++  102 -> RealiseType
++  103 -> CopyPathsType
++  104 -> BuildsType
++  105 -> BuildType
++  106 -> OptimiseStoreType
++  107 -> VerifyPathsType
++  108 -> SubstituteType
++  109 -> QueryPathInfoType
++  110 -> PostBuildHookType
++  111 -> BuildWaitingType
++  112 -> FetchTreeType
++  other -> OtherType other
+ 
+ parseAction :: JSON.Decoder NixJSONMessage
+ parseAction = JSON.object $ do
+@@ -117,8 +117,7 @@
+     105 -> (\(done, expected, running, failed) -> Progress (MkActivityProgress{..})) <$> four num
+     106 -> do
+       (typeNum, number) <- two num
+-      activityType <- parseActivityType typeNum
+-      pure $ SetExpected activityType number
++      pure $ SetExpected (parseActivityType typeNum) number
+     107 -> PostBuildLogLine <$> one txt
+     108 -> FetchStatus <$> one txt
+     other -> pure (OtherResult other)
+@@ -132,7 +131,7 @@
+   idField <- JSON.atKey "id" JSON.uint
+   text <- JSON.atKey "text" JSON.text
+   level <- JSON.atKey "level" parseVerbosity
+-  activityType <- JSON.atKey "type" (JSON.withInt parseActivityType)
++  activityType <- parseActivityType <$> JSON.atKey "type" JSON.int
+   let txt = textFields
+   activity <- case activityType of
+     UnknownType -> pure Unknown
