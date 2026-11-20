@@ -112,7 +112,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     atuin = {
-      url = "github:atuinsh/atuin?ref=v18.25.0";
+      url = "github:atuinsh/atuin?ref=v18.25.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flox.url = "github:flox/flox?ref=latest";
