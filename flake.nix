@@ -111,10 +111,7 @@
       url = "github:Alexays/Waybar?rev=16843896794a9c595139318420f81f40e84f8c78";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    atuin = {
-      url = "github:atuinsh/atuin?ref=v18.25.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    atuin.url = "github:atuinsh/atuin?ref=v18.25.1";
     flox.url = "github:flox/flox?ref=latest";
   };
 }
